@@ -11,21 +11,21 @@ void main() {
       expect(movies.length, 2);
     });
 
-    test('getMovies contains valid Phantom of the Opera and Lion King', () {
+    test('getMovies contains valid The Bad Guys and The Bad Guys 2', () {
       final MovieRepository repository = MovieRepository();
       final List<Movie> movies = repository.getMovies();
 
-      final Movie phantom = movies[0];
-      expect(phantom.id, 'movie-1');
-      expect(phantom.title, 'The Phantom of the Opera');
-      expect(phantom.price, 9.50);
-      expect(phantom.posterPath, isNotEmpty);
+      final Movie badGuys = movies[0];
+      expect(badGuys.id, 'movie-1');
+      expect(badGuys.title, 'The Bad Guys');
+      expect(badGuys.price, 7.99);
+      expect(badGuys.posterPath, isNotEmpty);
 
-      final Movie lionKing = movies[1];
-      expect(lionKing.id, 'movie-2');
-      expect(lionKing.title, 'The Lion King');
-      expect(lionKing.price, 8.00);
-      expect(lionKing.posterPath, isNotEmpty);
+      final Movie badGuys2 = movies[1];
+      expect(badGuys2.id, 'movie-2');
+      expect(badGuys2.title, 'The Bad Guys 2');
+      expect(badGuys2.price, 7.99);
+      expect(badGuys2.posterPath, isNotEmpty);
     });
 
     test('getMovieById returns matching movie when id exists', () {
@@ -33,8 +33,8 @@ void main() {
       final Movie? movie = repository.getMovieById('movie-1');
 
       expect(movie, isNotNull);
-      expect(movie?.title, 'The Phantom of the Opera');
-      expect(movie?.price, 9.50);
+      expect(movie?.title, 'The Bad Guys');
+      expect(movie?.price, 7.99);
     });
 
     test('getMovieById returns null when id does not exist', () {
