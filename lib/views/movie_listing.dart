@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
+import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  final Movie movie;
+
+  const MovieListing({super.key, required this.movie});
 
   @override
   State<MovieListing> createState() => _MovieListingState();
@@ -29,8 +32,8 @@ class _MovieListingState extends State<MovieListing> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'THE BAD GUYS (2022) (U)',
+            Text(
+              '${widget.movie.title} (${widget.movie.ageRating})',
               style: cinemaHeaderStyle,
             ),
             const SizedBox(height: 16),
@@ -39,16 +42,14 @@ class _MovieListingState extends State<MovieListing> {
               style: TextStyle(color: cinemaFontWhite, fontSize: 16),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Thursday 22 Oct 2026, 18:00 - 100 mins',
-              style: TextStyle(color: cinemaFontWhite, fontSize: 16),
+            Text(
+              widget.movie.screeningTime,
+              style: const TextStyle(color: cinemaFontWhite, fontSize: 16),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'The Bad Guys is a 2022 American animated crime comedy film '
-              'produced by DreamWorks Animation. Loosely based on the '
-              "children's book series by Aaron Blabey.",
-              style: TextStyle(color: cinemaFontMuted, fontSize: 15),
+            Text(
+              widget.movie.synopsis,
+              style: const TextStyle(color: cinemaFontMuted, fontSize: 15),
             ),
             const SizedBox(height: 24),
             const Text(
@@ -76,7 +77,7 @@ class _MovieListingState extends State<MovieListing> {
                 DropdownMenu<int>(
                   initialSelection: _ticketQuantity,
                   width: 100,
-                  textStyle: TextStyle(color: Colors.black),
+                  textStyle: const TextStyle(color: Colors.black),
                   inputDecorationTheme: InputDecorationTheme(
                     filled: true,
                     fillColor: Colors.grey.shade200,
@@ -89,7 +90,7 @@ class _MovieListingState extends State<MovieListing> {
                       });
                     }
                   },
-                  dropdownMenuEntries: [
+                  dropdownMenuEntries: const [
                     DropdownMenuEntry(value: 1, label: '1'),
                     DropdownMenuEntry(value: 2, label: '2'),
                     DropdownMenuEntry(value: 3, label: '3'),
@@ -98,9 +99,9 @@ class _MovieListingState extends State<MovieListing> {
                   ],
                 ),
                 const SizedBox(width: 12),
-                const Text(
-                  'Adult (£7.50)',
-                  style: TextStyle(color: cinemaFontWhite, fontSize: 16),
+                Text(
+                  'Adult (${widget.movie.formattedPrice})',
+                  style: const TextStyle(color: cinemaFontWhite, fontSize: 16),
                 ),
               ],
             ),
