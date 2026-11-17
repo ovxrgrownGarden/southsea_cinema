@@ -10,8 +10,8 @@ void main() {
         synopsis: 'A test synopsis.',
         ageRating: 'PG',
         screeningTime: 'Friday 6:00 PM',
-        price: 7.50,
-        posterPath: 'assets/images/phantom_of_the_opera.jpeg',
+        price: 7.99,
+        posterPath: 'assets/images/the_bad_guys_movie_poster.jpg',
       );
 
       expect(movie.id, 'test');
@@ -19,8 +19,11 @@ void main() {
       expect(movie.synopsis, 'A test synopsis.');
       expect(movie.ageRating, 'PG');
       expect(movie.screeningTime, 'Friday 6:00 PM');
-      expect(movie.price, 7.50);
-      expect(movie.posterPath, 'assets/images/phantom_of_the_opera.jpeg');
+      expect(movie.price, 7.99);
+      expect(
+        movie.posterPath,
+        'assets/images/the_bad_guys_movie_poster.jpg',
+      );
     });
 
     test('formattedPrice shows two decimal places for a whole-pound price', () {
@@ -31,7 +34,7 @@ void main() {
         ageRating: 'U',
         screeningTime: 'Friday 6:00 PM',
         price: 8.0,
-        posterPath: 'assets/images/the_lion_king.jpeg',
+        posterPath: 'assets/images/the_bad_guys_2_movie_poster.jpg',
       );
 
       expect(movie.formattedPrice, '£8.00');
@@ -44,11 +47,11 @@ void main() {
         synopsis: 'A test synopsis.',
         ageRating: 'U',
         screeningTime: 'Friday 6:00 PM',
-        price: 9.5,
-        posterPath: 'assets/images/the_lion_king.jpeg',
+        price: 7.99,
+        posterPath: 'assets/images/the_bad_guys_2_movie_poster.jpg',
       );
 
-      expect(movie.formattedPrice, '£9.50');
+      expect(movie.formattedPrice, '£7.99');
     });
   });
 }
